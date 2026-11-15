@@ -235,6 +235,7 @@ const projects = [
   { locked: true, lockId: 5, group: "work", where: "xxxxxxx", years: "2026", tags: ["web","devops"], bg: "#2fa0a8", blob: "#237f86" },
   {
     title: "Thaifolio",
+    links: [{ label: "Live site", url: "https://thaifolio.site" }],
     group: "indie", where: "Own product", years: "2026",
     tags: ["web", "backend"],
     stack: "Python · Flask · PyMuPDF · pdf2docx · Tesseract · Next.js · Stripe · Postgres",
@@ -250,6 +251,7 @@ const projects = [
   },
   {
     title: "Solar Calc (โซลาร์ประชาชน)",
+    links: [{ label: "Live site", url: "https://solar.thaifolio.site" }],
     group: "indie", where: "Side project", years: "2026",
     tags: ["web"],
     stack: "Next.js 16 · TypeScript · Vercel · Telegram Bot",
@@ -264,6 +266,7 @@ const projects = [
   },
   {
     title: "heha.live",
+    links: [{ label: "Live site", url: "https://heha.live" }],
     group: "indie", where: "Side project", years: "2026",
     tags: ["web", "backend"],
     stack: "Next.js · Tailwind · Node · Supabase",
@@ -278,6 +281,7 @@ const projects = [
   },
   {
     title: "TireFlow",
+    links: [{ label: "GitHub", url: "https://github.com/nstta/tiresystem" }],
     group: "indie", where: "Client project", years: "2026",
     tags: ["mobile", "backend"],
     stack: "Flutter · Riverpod · Node · Express · Prisma · Postgres",
@@ -320,6 +324,7 @@ const projects = [
   },
   {
     title: "VerifySlip",
+    links: [{ label: "Slip reader", url: "https://slip-reader-taupe.vercel.app" }],
     group: "indie", where: "Side project", years: "2026",
     tags: ["backend", "web"],
     stack: "TypeScript · Hono · Tesseract OCR · zxing · Docker",
@@ -348,6 +353,7 @@ const projects = [
   },
   {
     title: "ว่างป่ะ (Wangpa)",
+    links: [{ label: "Live site", url: "https://wangpa-gilt.vercel.app" }],
     group: "indie", where: "Side project", years: "2026",
     tags: ["web"],
     stack: "JavaScript · Vercel Functions · Upstash Redis",
@@ -362,6 +368,7 @@ const projects = [
   },
   {
     title: "88brandname",
+    links: [{ label: "Live site", url: "https://88brandname.vercel.app" }],
     group: "indie", where: "Client project", years: "2026",
     tags: ["web"],
     stack: "Next.js · React",
@@ -372,6 +379,7 @@ const projects = [
   },
   {
     title: "SAHA P.V.C. (2022)",
+    links: [{ label: "Live site", url: "https://sahapvc2022.vercel.app" }],
     group: "indie", where: "Client project", years: "2026",
     tags: ["web"],
     stack: "React · Vite",
@@ -382,6 +390,7 @@ const projects = [
   },
   {
     title: "Open-source contribution",
+    links: [{ label: "plus_plugins", url: "https://github.com/nsttaa/plus_plugins" }, { label: "AndroidPdfViewer", url: "https://github.com/nsttaa/AndroidPdfViewer" }],
     group: "indie", where: "Open source", years: "2025",
     tags: ["mobile"],
     stack: "Flutter · Dart · Java",
@@ -473,6 +482,11 @@ function showProject(i, { scroll = false } = {}) {
   } else {
     $("#projectTitle").textContent = p.title;
     $("#projectDesc").textContent = p.desc;
+    const links = p.links || [];
+    $("#projectLinks").hidden = !links.length;
+    $("#projectLinks").innerHTML = links
+      .map((l) => `<a class="pill card__link" href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a>`)
+      .join("");
     $("#projectChips").innerHTML = p.stack.split(" · ").map((c) => `<span class="chip">${c}</span>`).join("");
     $("#projectHighlight").innerHTML = p.did.map((d) => `<li>${d}</li>`).join("");
     const facts = [["Where", p.where], ["Years", p.years], ...p.facts];
@@ -586,7 +600,7 @@ function renderGrid(key) {
         <span class="tile__body">
           <span class="tile__title">${p.locked ? "Locked project" : p.title}</span>
           <span class="tile__stack">${p.locked ? tagNames(p) : p.stack}</span>
-          <span class="tile__where">${p.locked ? "xxxxxxx · password needed" : p.where}</span>
+          <span class="tile__where">${p.locked ? "xxxxxxx · password needed" : p.where}${p.links?.length ? `<span class="tile__live">${p.links[0].url.includes("github.com") ? "Code" : "Live"} ↗</span>` : ""}</span>
         </span>
       </button>`)
     .join("");

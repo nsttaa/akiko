@@ -308,7 +308,7 @@ const projects = [
     art: ["book", "ENGLISH"], bg: "#f2994a", blob: "#d97a2c",
   },
   {
-    title: "Tabi & Tonkatsu",
+    title: "TABICLIMB THAILAND",
     links: [{ label: "Live site", url: "https://tabiclimbthailand.com" }],
     group: "indie", where: "Side project", years: "2026",
     tags: ["web", "backend"],

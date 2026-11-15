@@ -726,8 +726,10 @@ img, svg { display: block; }
   .hero { min-height: 560px; height: 88vh; }
   .hero__title { margin-top: 110px; }
   .about { padding-top: 80px; }
-  .about__stats li { min-width: 0; flex: 1 1 100px; padding: 12px; }
-  .about__stats b { font-size: 26px; }
+  .about__stats { gap: 10px; flex-wrap: nowrap; }
+  .about__stats li { min-width: 0; flex: 1 1 0; padding: 12px 6px; }
+  .about__stats b { font-size: clamp(17px, 5.4vw, 24px); white-space: nowrap; }
+  .about__stats span { font-size: 11px; letter-spacing: .04em; }
   .timeline { grid-template-columns: 1fr; }
   .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .tile__top { height: 52px; padding: 8px 10px; }

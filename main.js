@@ -281,7 +281,6 @@ const projects = [
   },
   {
     title: "TireFlow",
-    links: [{ label: "GitHub", url: "https://github.com/nstta/tiresystem" }],
     group: "indie", where: "Client project", years: "2026",
     tags: ["mobile", "backend"],
     stack: "Flutter · Riverpod · Node · Express · Prisma · Postgres",
@@ -310,6 +309,7 @@ const projects = [
   },
   {
     title: "Tabi & Tonkatsu",
+    links: [{ label: "Live site", url: "https://tabiclimbthailand.com" }],
     group: "indie", where: "Side project", years: "2026",
     tags: ["web", "backend"],
     stack: "React · Vite · Tailwind · Supabase · Express · Stripe",
